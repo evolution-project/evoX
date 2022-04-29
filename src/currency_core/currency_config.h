@@ -106,9 +106,9 @@
 #define P2P_MAINTAINERS_PUB_KEY                         "8f138bb73f6d663a3746a542770781a09579a7b84cb4125249e95530824ee607"
 #else 
 #define P2P_DEFAULT_PORT                                (11112 + CURRENCY_FORMATION_VERSION)
-#define RPC_DEFAULT_PORT                                12111
-#define STRATUM_DEFAULT_PORT                            11888
-#define STRARUM_DEFAULT_PORT                            51113
+#define RPC_DEFAULT_PORT                                52531   //was 12111
+#define STRATUM_DEFAULT_PORT                            52600   //was 11888
+#define STRARUM_DEFAULT_PORT                            52700   //was 51113
 #define P2P_NETWORK_ID_TESTNET_FLAG                     1
 #define P2P_MAINTAINERS_PUB_KEY                         "aaa2d7aabc8d383fd53a3ae898697b28f236ceade6bafc1eecff413a6a02272a"
 #endif
@@ -168,7 +168,7 @@
 
 
 
-#define CURRENCY_NAME_ABR                               "ZANO"
+#define CURRENCY_NAME_ABR                               "EVOX"
 #define CURRENCY_NAME_BASE                              "Evox"
 #define CURRENCY_NAME_SHORT_BASE                        "Evox"
 #ifndef TESTNET
