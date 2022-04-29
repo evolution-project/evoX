@@ -11,7 +11,7 @@
 
 ### Dependencies
 | component / version | recommended | most recent of what we have ever tested |
-|--|--|--|--|
+|--|--|--|
 | Linux Ver. | 18.04 | 20.04 |
 | gcc (Linux) | 7.4.0 | 8.3.0 |
 | llvm/clang (Linux) | 7.0.1 | 8.0.0 |
