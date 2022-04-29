@@ -3,13 +3,13 @@ set +e # switch off exit on error
 curr_path=${BASH_SOURCE%/*}
 
 # check that all the required environment vars are set
-: "${ZANO_QT_PATH:?variable not set, see also macosx_build_config.command}"
-: "${ZANO_BOOST_ROOT:?variable not set, see also macosx_build_config.command}"
-: "${ZANO_BOOST_LIBS_PATH:?variable not set, see also macosx_build_config.command}"
-: "${ZANO_BUILD_DIR:?variable not set, see also macosx_build_config.command}"
+: "${EVOX_QT_PATH:?variable not set, see also macosx_build_config.command}"
+: "${EVOX_BOOST_ROOT:?variable not set, see also macosx_build_config.command}"
+: "${EVOX_BOOST_LIBS_PATH:?variable not set, see also macosx_build_config.command}"
+: "${EVOX_BUILD_DIR:?variable not set, see also macosx_build_config.command}"
 : "${CMAKE_OSX_SYSROOT:?CMAKE_OSX_SYSROOT should be set to macOS SDK path, e.g.: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk}"
 
-ARCHIVE_NAME_PREFIX=zano-macos-x64-
+ARCHIVE_NAME_PREFIX=evox-macos-x64-
 
 if [ -n "$build_prefix" ]; then
   ARCHIVE_NAME_PREFIX=${ARCHIVE_NAME_PREFIX}${build_prefix}-
@@ -23,14 +23,14 @@ if [ "$testnet" == true ]; then
 fi
 
 ######### DEBUG ##########
-#cd "$ZANO_BUILD_DIR/release/src"
+#cd "$EVOX_BUILD_DIR/release/src"
 #rm *.dmg
 #if false; then
 ##### end of DEBUG ######
 
-rm -rf $ZANO_BUILD_DIR; mkdir -p "$ZANO_BUILD_DIR/release"; cd "$ZANO_BUILD_DIR/release"
+rm -rf $EVOX_BUILD_DIR; mkdir -p "$EVOX_BUILD_DIR/release"; cd "$EVOX_BUILD_DIR/release"
 
-cmake $testnet_def -D CMAKE_OSX_SYSROOT=$CMAKE_OSX_SYSROOT -D BUILD_GUI=TRUE -D CMAKE_PREFIX_PATH="$ZANO_QT_PATH/clang_64" -D CMAKE_BUILD_TYPE=Release -D BOOST_ROOT="$ZANO_BOOST_ROOT" -D BOOST_LIBRARYDIR="$ZANO_BOOST_LIBS_PATH" ../..
+cmake $testnet_def -D CMAKE_OSX_SYSROOT=$CMAKE_OSX_SYSROOT -D BUILD_GUI=TRUE -D CMAKE_PREFIX_PATH="$EVOX_QT_PATH/clang_64" -D CMAKE_BUILD_TYPE=Release -D BOOST_ROOT="$EVOX_BOOST_ROOT" -D BOOST_LIBRARYDIR="$EVOX_BOOST_LIBS_PATH" ../..
 if [ $? -ne 0 ]; then
     echo "Failed to cmake"
     exit 1
@@ -38,9 +38,9 @@ fi
 
 
 
-make -j Zano
+make -j Evox
 if [ $? -ne 0 ]; then
-    echo "Failed to make Zano"
+    echo "Failed to make Evox"
     exit 1
 fi
 
@@ -58,63 +58,63 @@ if [ $? -ne 0 ]; then
 fi
 
 # copy all necessary libs into the bundle in order to workaround El Capitan's SIP restrictions
-mkdir -p Zano.app/Contents/Frameworks/boost_libs
-cp -R "$ZANO_BOOST_LIBS_PATH/" Zano.app/Contents/Frameworks/boost_libs/
+mkdir -p Evox.app/Contents/Frameworks/boost_libs
+cp -R "$EVOX_BOOST_LIBS_PATH/" Evox.app/Contents/Frameworks/boost_libs/
 if [ $? -ne 0 ]; then
     echo "Failed to cp workaround to MacOS"
     exit 1
 fi
 
 # rename process name to big letter 
-mv Zano.app/Contents/MacOS/zano Zano.app/Contents/MacOS/Zano
+mv Evox.app/Contents/MacOS/evox Evox.app/Contents/MacOS/Evox
 if [ $? -ne 0 ]; then
     echo "Failed to rename process"
     exit 1
 fi
 
-cp zanod simplewallet Zano.app/Contents/MacOS/
+cp evoxd simplewallet Evox.app/Contents/MacOS/
 if [ $? -ne 0 ]; then
-    echo "Failed to copy binaries to Zano.app folder"
+    echo "Failed to copy binaries to Evox.app folder"
     exit 1
 fi
 
 # fix boost libs paths in main executable and libs to workaround El Capitan's SIP restrictions
 source ../../../utils/macosx_fix_boost_libs_path.sh
-fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs Zano.app/Contents/MacOS/Zano
-fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs Zano.app/Contents/MacOS/simplewallet
-fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs Zano.app/Contents/MacOS/zanod
-fix_boost_libs_in_libs @executable_path/../Frameworks/boost_libs Zano.app/Contents/Frameworks/boost_libs
+fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs Evox.app/Contents/MacOS/Evox
+fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs Evox.app/Contents/MacOS/simplewallet
+fix_boost_libs_in_binary @executable_path/../Frameworks/boost_libs Evox.app/Contents/MacOS/evoxd
+fix_boost_libs_in_libs @executable_path/../Frameworks/boost_libs Evox.app/Contents/Frameworks/boost_libs
 
 
 
-"$ZANO_QT_PATH/clang_64/bin/macdeployqt" Zano.app
+"$EVOX_QT_PATH/clang_64/bin/macdeployqt" Evox.app
 if [ $? -ne 0 ]; then
-    echo "Failed to macdeployqt Zano.app"
+    echo "Failed to macdeployqt Evox.app"
     exit 1
 fi
 
 
 
-rsync -a ../../../src/gui/qt-daemon/layout/html Zano.app/Contents/MacOS --exclude less --exclude package.json --exclude gulpfile.js
+rsync -a ../../../src/gui/qt-daemon/layout/html Evox.app/Contents/MacOS --exclude less --exclude package.json --exclude gulpfile.js
 if [ $? -ne 0 ]; then
     echo "Failed to cp html to MacOS"
     exit 1
 fi
 
-cp ../../../src/gui/qt-daemon/app.icns Zano.app/Contents/Resources
+cp ../../../src/gui/qt-daemon/app.icns Evox.app/Contents/Resources
 if [ $? -ne 0 ]; then
     echo "Failed to cp app.icns to resources"
     exit 1
 fi
 
-codesign -s "Developer ID Application: Zano Limited" --timestamp --options runtime -f --entitlements ../../../utils/macos_entitlements.plist --deep ./Zano.app
+codesign -s "Developer ID Application: Evox Limited" --timestamp --options runtime -f --entitlements ../../../utils/macos_entitlements.plist --deep ./Evox.app
 if [ $? -ne 0 ]; then
-    echo "Failed to sign Zano.app"
+    echo "Failed to sign Evox.app"
     exit 1
 fi
 
 
-read version_str <<< $(DYLD_LIBRARY_PATH=$ZANO_BOOST_LIBS_PATH ./connectivity_tool --version | awk '/^Zano/ { print $2 }')
+read version_str <<< $(DYLD_LIBRARY_PATH=$EVOX_BOOST_LIBS_PATH ./connectivity_tool --version | awk '/^Evox/ { print $2 }')
 version_str=${version_str}
 echo $version_str
 
@@ -126,7 +126,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-mv Zano.app package_folder 
+mv Evox.app package_folder 
 if [ $? -ne 0 ]; then
     echo "Failed to top app package"
     exit 1
@@ -149,7 +149,7 @@ echo "############### Uploading... ################"
 
 package_filepath=$package_filename
 
-scp $package_filepath zano_build_server:/var/www/html/builds/
+scp $package_filepath evox_build_server:/var/www/html/builds/
 if [ $? -ne 0 ]; then
     echo "Failed to upload to remote server"
     exit 1
@@ -159,12 +159,12 @@ fi
 read checksum <<< $( shasum -a 256 $package_filepath | awk '/^/ { print $1 }' )
 
 mail_msg="New ${build_prefix_label}${testnet_label}build for macOS-x64:<br>
-https://build.zano.org/builds/$package_filename<br>
+https://build.evox.org/builds/$package_filename<br>
 sha256: $checksum"
 
 echo "$mail_msg"
 
-echo "$mail_msg" | mail -s "Zano macOS-x64 ${build_prefix_label}${testnet_label}build $version_str" ${emails}
+echo "$mail_msg" | mail -s "Evox macOS-x64 ${build_prefix_label}${testnet_label}build $version_str" ${emails}
 
 
 ######################
@@ -177,11 +177,11 @@ echo "Notarizing..."
 
 # creating archive for notarizing
 echo "Creating archive for notarizing"
-rm -f Zano.zip
-/usr/bin/ditto -c -k --keepParent ./Zano.app ./Zano.zip
+rm -f Evox.zip
+/usr/bin/ditto -c -k --keepParent ./Evox.app ./Evox.zip
 
 tmpfile="tmptmptmp"
-xcrun altool --notarize-app --primary-bundle-id "org.zano.desktop" -u "andrey@zano.org" -p "@keychain:Developer-altool" --file ./Zano.zip > $tmpfile 2>&1
+xcrun altool --notarize-app --primary-bundle-id "org.evox.desktop" -u "andrey@zano.org" -p "@keychain:Developer-altool" --file ./Evox.zip > $tmpfile 2>&1
 NOTARIZE_RES=$?
 NOTARIZE_OUTPUT=$( cat $tmpfile )
 rm $tmpfile

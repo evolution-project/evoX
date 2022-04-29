@@ -1,28 +1,28 @@
 ###########################################################################################
-## zanod Dockerfile
+## evoxd Dockerfile
 ###########################################################################################
 
 #
 # Usage:
-# (make sure you have correct permission for /var/data/zano-data prior to run!)
+# (make sure you have correct permission for /var/data/evox-data prior to run!)
 #
-#   docker run --restart=always -v /var/data/zano-data:/home/zano/.Zano -p 11121:11121 -p 11211:11211 --name=zanod -dit sowle/zano-full-node
+#   docker run --restart=always -v /var/data/evox-data:/home/evox/.Evox -p 11121:11121 -p 11211:11211 --name=evoxd -dit sowle/evox-full-node
 #
 # To get into container and interact with the daemon:
-#   docker attach zanod
+#   docker attach evoxd
 #
 # To detach from container and left it running:
 #   Ctrl+P, Ctrl+Q
 #
 # To stop container:
-#   docker stop zanod
+#   docker stop evoxd
 #
 
 #
-# Build Zano
+# Build Evox
 #
 
-FROM ubuntu:18.04 as zano-build
+FROM ubuntu:18.04 as evox-build
 
 RUN apt update && \
     apt install -y build-essential \
@@ -57,14 +57,14 @@ RUN curl  https://boostorg.jfrog.io/artifactory/main/release/1.68.0/source/boost
 
 ENV BOOST_ROOT=/root/boost_1_68_0
 
-# Zano
+# Evox
 
 RUN pwd && mem_avail_gb=$(( $(getconf _AVPHYS_PAGES) * $(getconf PAGE_SIZE) / (1024 * 1024 * 1024) )) &&\
     make_job_slots=$(( $mem_avail_gb < 4 ? 1 : $mem_avail_gb / 4)) &&\
     echo make_job_slots=$make_job_slots &&\
     set -x &&\
-    git clone --single-branch https://github.com/hyle-team/zano.git &&\
-    cd zano &&\
+    git clone --single-branch https://github.com/evolution-project/zano.git &&\
+    cd evox &&\
     git submodule update --init --recursive &&\
     mkdir build && cd build &&\
     cmake -D STATIC=TRUE .. &&\
@@ -72,25 +72,25 @@ RUN pwd && mem_avail_gb=$(( $(getconf _AVPHYS_PAGES) * $(getconf PAGE_SIZE) / (1
 
 
 #
-# Run Zano
+# Run Evox
 #
 
 FROM ubuntu:18.04
 
-RUN useradd -ms /bin/bash zano &&\
-    mkdir -p /home/zano/.Zano &&\
-    chown -R zano:zano /home/zano/.Zano
+RUN useradd -ms /bin/bash evox &&\
+    mkdir -p /home/evox/.Evox &&\
+    chown -R evox:evox /home/evox/.Evox
 
-USER zano:zano
+USER evox:evox
 
-WORKDIR /home/zano
-COPY --chown=zano:zano --from=zano-build /root/zano/build/src/zanod .
-COPY --chown=zano:zano --from=zano-build /root/zano/build/src/simplewallet .
+WORKDIR /home/evox
+COPY --chown=evox:evox --from=evox-build /root/evox/build/src/evoxd .
+COPY --chown=evox:evox --from=evox-build /root/evox/build/src/simplewallet .
 
 # blockchain loaction
-VOLUME /home/zano/.Zano
+VOLUME /home/evox/.Evox
 
 EXPOSE 11121 11211
 
-ENTRYPOINT ["./zanod"]
+ENTRYPOINT ["./evoxd"]
 CMD ["--disable-upnp", "--rpc-bind-ip=0.0.0.0", "--log-level=0"]

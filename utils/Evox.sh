@@ -7,12 +7,12 @@ export QT_PLUGIN_PATH=$script_dir/lib
 echo $LD_LIBRARY_PATH
 echo $QT_PLUGIN_PATH
 
-out_file_name=~/.local/share/applications/Zano.desktop
+out_file_name=~/.local/share/applications/Evox.desktop
 
 call_app()
 {
   pushd $script_dir
-  ./Zano "$@"
+  ./Evox "$@"
   popd
   exit
 }
@@ -25,20 +25,20 @@ create_desktop_icon()
     rm -f $target_file_name
     echo [Desktop Entry] | tee -a $target_file_name  > /dev/null
     echo Version=1.0 | tee -a $target_file_name  > /dev/null
-    echo Name=Zano | tee -a $target_file_name > /dev/null
-    echo GenericName=Zano | tee -a $target_file_name  > /dev/null
+    echo Name=Evox | tee -a $target_file_name > /dev/null
+    echo GenericName=Evox | tee -a $target_file_name  > /dev/null
     echo Comment=Privacy blockchain | tee -a $target_file_name > /dev/null
     echo Icon=$script_dir/html/files/desktop_linux_icon.png | tee -a $target_file_name > /dev/null
-    echo Exec=$script_dir/Zano.sh --deeplink-params=%u | tee -a $target_file_name  > /dev/null
+    echo Exec=$script_dir/Evox.sh --deeplink-params=%u | tee -a $target_file_name  > /dev/null
     echo Terminal=true | tee -a $target_file_name  > /dev/null
     echo Type=Application | tee -a $target_file_name  > /dev/null
     echo "Categories=Qt;Utility;" | tee -a $target_file_name  > /dev/null
-    echo "MimeType=x-scheme-handler/zano;" | tee -a $target_file_name  > /dev/null
+    echo "MimeType=x-scheme-handler/evox;" | tee -a $target_file_name  > /dev/null
 }
 
 
 create_desktop_icon $out_file_name
 
-xdg-mime default Zano.desktop x-scheme-handler/zano
+xdg-mime default Evox.desktop x-scheme-handler/evox
 
 call_app "$@"

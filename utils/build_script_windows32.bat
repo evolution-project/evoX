@@ -1,9 +1,9 @@
 SET QT32_PREFIX_PATH=C:\Qt\Qt5.9.1\5.9.1\msvc2015
 SET INNOSETUP_PATH=C:\Program Files (x86)\Inno Setup 5\ISCC.exe
 SET ETC32_BINARIES_PATH=C:\home\deploy\etc-binaries-32
-SET BUILDS_PATH=C:\home\deploy\zano
-SET ACHIVE_NAME_PREFIX=zano-win-x32-webengine-
-SET SOURCES_PATH=C:\home\deploy\zano\src
+SET BUILDS_PATH=C:\home\deploy\evox
+SET ACHIVE_NAME_PREFIX=evox-win-x32-webengine-
+SET SOURCES_PATH=C:\home\deploy\evox\src
 
 SET LOCAL_BOOST_PATH_32=C:\local\boost_1_62_0
 SET LOCAL_BOOST_LIB_PATH_32=C:\local\boost_1_62_0\lib32-msvc-14.0
@@ -60,7 +60,7 @@ IF %ERRORLEVEL% NEQ 0 (
   goto error
 )
 
-msbuild src/zano.vcxproj  /p:Configuration=Release /t:Build
+msbuild src/evox.vcxproj  /p:Configuration=Release /t:Build
 
 IF %ERRORLEVEL% NEQ 0 (
   goto error
@@ -92,11 +92,11 @@ cd src\release
 
 mkdir bunch
 
-copy /Y zano.exe bunch
-copy /Y zanod.exe bunch
+copy /Y evox.exe bunch
+copy /Y evoxd.exe bunch
 copy /Y simplewallet.exe bunch
-copy /Y zano.exe bunch
-%QT32_PREFIX_PATH%\bin\windeployqt.exe bunch\Zano.exe
+copy /Y evox.exe bunch
+%QT32_PREFIX_PATH%\bin\windeployqt.exe bunch\Evox.exe
 
 cd bunch
 

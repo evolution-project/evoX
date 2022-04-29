@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.6)
 
-PROJECT(Zano)
+PROJECT(Evox)
 
 
 set(VERSION "1.0")
@@ -249,7 +249,7 @@ else()
   endif()
 endif()
 
-set(BUILD_TESTS FALSE CACHE BOOL "Build Zano tests")
+set(BUILD_TESTS FALSE CACHE BOOL "Build Evox tests")
 set(DISABLE_MDBX FALSE CACHE BOOL "Exclude mdbx from build(need for a first time)") 
 if(NOT DISABLE_MDBX)
    add_definitions(-DENABLED_ENGINE_MDBX)

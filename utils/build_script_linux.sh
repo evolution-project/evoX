@@ -9,7 +9,7 @@
 # export BOOST_ROOT=/home/user/boost_1_66_0
 # export QT_PREFIX_PATH=/home/user/Qt5.10.1/5.10.1/gcc_64
 
-ARCHIVE_NAME_PREFIX=zano-linux-x64-
+ARCHIVE_NAME_PREFIX=evox-linux-x64-
 
 : "${BOOST_ROOT:?BOOST_ROOT should be set to the root of Boost, ex.: /home/user/boost_1_66_0}"
 : "${QT_PREFIX_PATH:?QT_PREFIX_PATH should be set to Qt libs folder, ex.: /home/user/Qt5.10.1/5.10.1/gcc_64}"
@@ -52,66 +52,66 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-make -j1 Zano
+make -j1 Evox
 if [ $? -ne 0 ]; then
     echo "Failed to make!"
     exit 1
 fi
 
 
-read version_str <<< $(./src/zanod --version | awk '/^Zano/ { print $2 }')
+read version_str <<< $(./src/evoxd --version | awk '/^Evox/ { print $2 }')
 version_str=${version_str}
 echo $version_str
 
-rm -rf Zano;
-mkdir -p Zano;
+rm -rf Evox;
+mkdir -p Evox;
 
-rsync -a ../../src/gui/qt-daemon/layout/html ./Zano --exclude less --exclude package.json --exclude gulpfile.js
-cp -Rv ../../utils/Zano.sh ./Zano
-chmod 777 ./Zano/Zano.sh
-mkdir ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libicudata.so.56 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libicui18n.so.56 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libicuuc.so.56 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5Core.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5DBus.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5Gui.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5Network.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5OpenGL.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5Positioning.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5PrintSupport.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5Qml.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5Quick.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5Sensors.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5Sql.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5Widgets.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5WebEngine.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5WebEngineCore.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5WebEngineWidgets.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5WebChannel.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5XcbQpa.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/lib/libQt5QuickWidgets.so.5 ./Zano/lib
-cp $QT_PREFIX_PATH/libexec/QtWebEngineProcess ./Zano
-cp $QT_PREFIX_PATH/resources/qtwebengine_resources.pak ./Zano
-cp $QT_PREFIX_PATH/resources/qtwebengine_resources_100p.pak ./Zano
-cp $QT_PREFIX_PATH/resources/qtwebengine_resources_200p.pak ./Zano
-cp $QT_PREFIX_PATH/resources/icudtl.dat ./Zano
+rsync -a ../../src/gui/qt-daemon/layout/html ./Evox --exclude less --exclude package.json --exclude gulpfile.js
+cp -Rv ../../utils/Evox.sh ./Evox
+chmod 777 ./Evox/Evox.sh
+mkdir ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libicudata.so.56 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libicui18n.so.56 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libicuuc.so.56 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5Core.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5DBus.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5Gui.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5Network.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5OpenGL.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5Positioning.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5PrintSupport.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5Qml.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5Quick.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5Sensors.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5Sql.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5Widgets.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5WebEngine.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5WebEngineCore.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5WebEngineWidgets.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5WebChannel.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5XcbQpa.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/lib/libQt5QuickWidgets.so.5 ./Evox/lib
+cp $QT_PREFIX_PATH/libexec/QtWebEngineProcess ./Evox
+cp $QT_PREFIX_PATH/resources/qtwebengine_resources.pak ./Evox
+cp $QT_PREFIX_PATH/resources/qtwebengine_resources_100p.pak ./Evox
+cp $QT_PREFIX_PATH/resources/qtwebengine_resources_200p.pak ./Evox
+cp $QT_PREFIX_PATH/resources/icudtl.dat ./Evox
 
 if [ "$copy_qt_dev_tools" = true ] ; then
-  cp $QT_PREFIX_PATH/resources/qtwebengine_devtools_resources.pak ./Zano
+  cp $QT_PREFIX_PATH/resources/qtwebengine_devtools_resources.pak ./Evox
 fi
 
-mkdir ./Zano/lib/platforms
-cp $QT_PREFIX_PATH/plugins/platforms/libqxcb.so ./Zano/lib/platforms
-mkdir ./Zano/xcbglintegrations
-cp $QT_PREFIX_PATH/plugins/xcbglintegrations/libqxcb-glx-integration.so ./Zano/xcbglintegrations
+mkdir ./Evox/lib/platforms
+cp $QT_PREFIX_PATH/plugins/platforms/libqxcb.so ./Evox/lib/platforms
+mkdir ./Evox/xcbglintegrations
+cp $QT_PREFIX_PATH/plugins/xcbglintegrations/libqxcb-glx-integration.so ./Evox/xcbglintegrations
 
-cp -Rv src/zanod src/Zano src/simplewallet  src/connectivity_tool ./Zano
+cp -Rv src/evoxd src/Evox src/simplewallet  src/connectivity_tool ./Evox
 
 package_filename=${ARCHIVE_NAME_PREFIX}${version_str}.tar.bz2
 
 rm -f ./$package_filename
-tar -cjvf $package_filename Zano
+tar -cjvf $package_filename Evox
 if [ $? -ne 0 ]; then
     echo "Failed to pack"
     exit 1
@@ -125,7 +125,7 @@ fi
 
 echo "Uploading..."
 
-scp $package_filename zano_build_server:/var/www/html/builds
+scp $package_filename evox_build_server:/var/www/html/builds
 if [ $? -ne 0 ]; then
     echo "Failed to upload to remote server"
     exit $?
@@ -134,11 +134,11 @@ fi
 read checksum <<< $(sha256sum $package_filename | awk '/^/ { print $1 }' )
 
 mail_msg="New ${build_prefix_label}${testnet_label}${copy_qt_dev_tools_label}build for linux-x64:<br>
-https://build.zano.org/builds/$package_filename<br>
+https://build.evox.org/builds/$package_filename<br>
 sha256: $checksum"
 
 echo "$mail_msg"
 
-echo "$mail_msg" | mail -s "Zano linux-x64 ${build_prefix_label}${testnet_label}${copy_qt_dev_tools_label}build $version_str" ${emails}
+echo "$mail_msg" | mail -s "Evox linux-x64 ${build_prefix_label}${testnet_label}${copy_qt_dev_tools_label}build $version_str" ${emails}
 
 exit 0

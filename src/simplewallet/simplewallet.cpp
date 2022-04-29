@@ -1165,11 +1165,11 @@ bool simple_wallet::validate_wrap_status(uint64_t amount)
     return false;
   }
   //check if amount is bigger then erc20 fee
-  uint64_t zano_needed_for_wrap = std::stoll(res.tx_cost.zano_needed_for_erc20);
-  if (amount <= zano_needed_for_wrap)
+  uint64_t evox_needed_for_wrap = std::stoll(res.tx_cost.evox_needed_for_erc20);
+  if (amount <= evox_needed_for_wrap)
   {
     fail_msg_writer() << "Too small amount to cover ERC20 fee. ERC20 cost is: " 
-      << print_money(zano_needed_for_wrap) << " Zano" <<
+      << print_money(evox_needed_for_wrap) << " Evox" <<
       "($" << res.tx_cost.usd_needed_for_erc20 << ")";
     return false;
   }
@@ -1181,7 +1181,7 @@ bool simple_wallet::validate_wrap_status(uint64_t amount)
     return false;
   }
   
-  success_msg_writer(false) << "You'll receive estimate " << print_money(amount - zano_needed_for_wrap) << " wZano (" << print_money(zano_needed_for_wrap)<< " Zano will be used to cover ERC20 fee)";
+  success_msg_writer(false) << "You'll receive estimate " << print_money(amount - evox_needed_for_wrap) << " wZano (" << print_money(evox_needed_for_wrap)<< " Evox will be used to cover ERC20 fee)";
   success_msg_writer(false) << "Proceed? (yes/no)";
   while (true)
   {
@@ -1258,7 +1258,7 @@ bool simple_wallet::transfer(const std::vector<std::string> &args_)
     {
 
       success_msg_writer(false) << "Address " << local_args[i] << " recognized as wrapped address, creating wrapping transaction.";
-      success_msg_writer(false) << "This transaction will create wZano (\"Wrapped Zano\") which will be sent to the specified address on the Ethereum network.";
+      success_msg_writer(false) << "This transaction will create wZano (\"Wrapped Evox\") which will be sent to the specified address on the Ethereum network.";
 
       if (!validate_wrap_status(de.amount))
       {
@@ -1324,7 +1324,7 @@ bool simple_wallet::transfer(const std::vector<std::string> &args_)
     }
     else
     {
-      success_msg_writer(true) << "Transaction prepared for signing and saved into \"zano_tx_unsigned\" file, use full wallet to sign transfer and then use \"submit_transfer\" on this wallet to broadcast the transaction to the network";
+      success_msg_writer(true) << "Transaction prepared for signing and saved into \"evox_tx_unsigned\" file, use full wallet to sign transfer and then use \"submit_transfer\" on this wallet to broadcast the transaction to the network";
     }
   }
   catch (const tools::error::daemon_busy&)
@@ -1776,7 +1776,7 @@ bool simple_wallet::sweep_below(const std::vector<std::string> &args)
     size_t outs_total = 0, outs_swept = 0;
     uint64_t amount_total = 0, amount_swept = 0;
     currency::transaction result_tx = AUTO_VAL_INIT(result_tx);
-    std::string filename = "zano_tx_unsigned";
+    std::string filename = "evox_tx_unsigned";
     m_wallet->sweep_below(fake_outs_count, addr, amount, payment_id, fee, outs_total, amount_total, outs_swept, &result_tx, &filename);
     if (!get_inputs_money_amount(result_tx, amount_swept))
       LOG_ERROR("get_inputs_money_amount failed, tx: " << obj_to_json_str(result_tx));
