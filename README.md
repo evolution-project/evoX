@@ -1,10 +1,9 @@
 [![Coverity Scan](https://scan.coverity.com/projects/18767/badge.svg)](https://scan.coverity.com/projects/zanoproject)
-[![Discord](https://img.shields.io/discord/538361472691077130?label=discord&logo=discord)](https://discord.gg/wE3rmYY)
 
-## Cloning
+## Join us
 
-Be sure to clone the repository properly:\
-`git clone --recursive https://github.com/evolution-project/zano.git`
+[![Discord](https://img.shields.io/discord/648609336796512266?label=discord&logo=discord)](https://discord.gg/erYnAQf)
+
 
 # Building
 --------
@@ -51,17 +50,20 @@ Recommended OS version: Ubuntu 18.04 LTS.
        ./b2
 
 3. Install Qt\
-(*GUI version only, skip this step if you're building server version*)
+
+    (*GUI version only, skip this step if you're building server version*)
 
     [*GUI version*]
 
        wget https://download.qt.io/new_archive/qt/5.11/5.11.2/qt-opensource-linux-x64-5.11.2.run
        chmod +x qt-opensource-linux-x64-5.11.2.run
        ./qt-opensource-linux-x64-5.11.2.run
+
     Then follow the instructions in Wizard. Don't forget to tick the WebEngine module checkbox!
 
 4. Set environment variables properly\
-For instance, by adding the following lines to `~/.bashrc`
+
+    For instance, by adding the following lines to `~/.bashrc`
 
     [*server version*]
 
@@ -73,9 +75,14 @@ For instance, by adding the following lines to `~/.bashrc`
        export BOOST_ROOT=/home/user/boost_1_70_0  
        export QT_PREFIX_PATH=/home/user/Qt5.11.2/5.11.2/gcc_64
 
+5. Cloning
 
+    Be sure to clone the repository properly:\
 
-5. Building binaries
+    `git clone --recursive https://github.com/evolution-project/zano.git`
+
+6. Building binaries
+
    1. Building daemon and simplewallet:
 
           cd zano/ && make -j1
@@ -96,6 +103,9 @@ For instance, by adding the following lines to `~/.bashrc`
 
 7. Look for the binaries in `build` folder
 
+<br />
+<br />
+<br />
 <br />
 
 ### Windows
