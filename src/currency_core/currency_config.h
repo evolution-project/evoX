@@ -239,9 +239,9 @@
 #define BLOCK_MINOR_VERSION_GENESIS                     0
 #define BLOCK_MAJOR_VERSION_INITIAL                     0
 #ifndef TESTNET
-#define ZANO_HARDFORK_01_AFTER_HEIGHT                   194624
-#define ZANO_HARDFORK_02_AFTER_HEIGHT                   999999
-#define ZANO_HARDFORK_03_AFTER_HEIGHT                   1082577
+#define ZANO_HARDFORK_01_AFTER_HEIGHT                   1440    //was 194624
+#define ZANO_HARDFORK_02_AFTER_HEIGHT                   1800    //was 999999
+#define ZANO_HARDFORK_03_AFTER_HEIGHT                   1801    //was 1082577
 #else
 #define ZANO_HARDFORK_01_AFTER_HEIGHT                   1440
 #define ZANO_HARDFORK_02_AFTER_HEIGHT                   1800
