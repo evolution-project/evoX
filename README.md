@@ -4,22 +4,23 @@
 ## Cloning
 
 Be sure to clone the repository properly:\
-`$ git clone --recursive https://github.com/hyle-team/zano.git`
+`git clone --recursive https://github.com/evolution-project/zano.git`
 
 # Building
 --------
 
 
 ### Dependencies
-| component / version | minimum <br>(not recommended but may work) | recommended | most recent of what we have ever tested |
+| component / version | recommended | most recent of what we have ever tested |
 |--|--|--|--|
-| gcc (Linux) | 5.4.0 | 7.4.0 | 8.3.0 |
-| llvm/clang (Linux) | UNKNOWN | 7.0.1 | 8.0.0 |
-| [MSVC](https://visualstudio.microsoft.com/downloads/) (Windows) | 2015 (14.0 update 1) | 2017 (15.9.0) | 2019 |
-| [XCode](https://developer.apple.com/downloads/) (macOS) | 9.2 | 12.3 | 12.3 |
-| [CMake](https://cmake.org/download/) | 2.8.6 | 3.15.5 | 3.20 |
-| [Boost](https://www.boost.org/users/download/) | 1.56 | 1.68 | 1.76 |
-| [Qt](https://download.qt.io/archive/qt/) (*only for GUI*) | 5.8.0 | 5.11.2 | 5.15.2 |
+| Linux Ver. | 18.04 | 20.04 |
+| gcc (Linux) | 7.4.0 | 8.3.0 |
+| llvm/clang (Linux) | 7.0.1 | 8.0.0 |
+| [MSVC](https://visualstudio.microsoft.com/downloads/) (Windows) | 2017 (15.9.0) | 2019 |
+| [XCode](https://developer.apple.com/downloads/) (macOS) | 12.3 | 12.3 |
+| [CMake](https://cmake.org/download/) | 3.15.5 | 3.20 |
+| [Boost](https://www.boost.org/users/download/) | 1.70 | 1.76 |
+| [Qt](https://download.qt.io/archive/qt/) (*only for GUI*) | 5.11.2 | 5.15.2 |
 
 Note:\
 [*server version*] denotes steps required for building command-line tools (daemon, simplewallet, etc.).\
@@ -43,9 +44,9 @@ Recommended OS version: Ubuntu 18.04 LTS.
 
 2. Download and build Boost
 
-       wget https://boostorg.jfrog.io/artifactory/main/release/1.68.0/source/boost_1_68_0.tar.bz2
-       tar -xjf boost_1_68_0.tar.bz2
-       cd boost_1_68_0
+       wget https://boostorg.jfrog.io/artifactory/main/release/1.70.0/source/boost_1_70_0.tar.bz2
+       tar -xjf boost_1_70_0.tar.bz2
+       cd boost_1_70_0
        ./bootstrap.sh --with-libraries=system,filesystem,thread,date_time,chrono,regex,serialization,atomic,program_options,locale,timer
        ./b2
 
@@ -64,12 +65,12 @@ For instance, by adding the following lines to `~/.bashrc`
 
     [*server version*]
 
-       export BOOST_ROOT=/home/user/boost_1_68_0  
+       export BOOST_ROOT=/home/user/boost_1_70_0  
 
 
     [*GUI version*]
 
-       export BOOST_ROOT=/home/user/boost_1_68_0  
+       export BOOST_ROOT=/home/user/boost_1_70_0  
        export QT_PREFIX_PATH=/home/user/Qt5.11.2/5.11.2/gcc_64
 
 
@@ -113,6 +114,8 @@ In order to correctly deploy Qt GUI application, you also need to do the followi
 9. Now you can run `Zano.exe`
 
 <br />
+
+## I dont support
 
 ### macOS
 Recommended OS version: macOS Sierra 10.15.4 x64.
