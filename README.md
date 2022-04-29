@@ -10,7 +10,7 @@
 
 
 ### Dependencies
-| component / version | recommended | most recent of what we have ever tested |
+| Component / Version | Recommended | Most Recent Ever Tested |
 |--|--|--|
 | Linux Ver. | 18.04 | 20.04 |
 | gcc (Linux) | 7.4.0 | 8.3.0 |
