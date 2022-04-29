@@ -213,7 +213,7 @@ void run_plain_wallet_api_test()
 //   //-------
 //   {
 //     LOG_PRINT_L0("Creating instance...");
-//     plain_wallet::hwallet hw = plain_wallet::create_instance("127.0.0.1", "11211");
+//     plain_wallet::hwallet hw = plain_wallet::create_instance("127.0.0.1", "52521");
 //     LOG_PRINT_L0("Creating instance..." << std::hex << hw);
 // 
 //     LOG_PRINT_L0("Generating wallet...");

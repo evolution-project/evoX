@@ -6,7 +6,7 @@
 # Usage:
 # (make sure you have correct permission for /var/data/evox-data prior to run!)
 #
-#   docker run --restart=always -v /var/data/evox-data:/home/evox/.Evox -p 11121:11121 -p 11211:11211 --name=evoxd -dit sowle/evox-full-node
+#   docker run --restart=always -v /var/data/evox-data:/home/evox/.Evox -p 52520:52520 -p 52521:52521 --name=evoxd -dit sowle/evox-full-node
 #
 # To get into container and interact with the daemon:
 #   docker attach evoxd
@@ -90,7 +90,7 @@ COPY --chown=evox:evox --from=evox-build /root/evox/build/src/simplewallet .
 # blockchain loaction
 VOLUME /home/evox/.Evox
 
-EXPOSE 11121 11211
+EXPOSE 52520 52521
 
 ENTRYPOINT ["./evoxd"]
 CMD ["--disable-upnp", "--rpc-bind-ip=0.0.0.0", "--log-level=0"]
