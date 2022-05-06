@@ -180,7 +180,7 @@
 #endif
 
 //premine
-#define PREMINE_AMOUNT                                  (17517203000000000000U) // 13827203.0 reserved for coinswap, 3690000.0 - premine  
+#define PREMINE_AMOUNT                                  (0) // (17517203000000000000U) - 13827203.0 reserved for coinswap, 3690000.0 - premine  
 
 //alias registration wallet
 #define ALIAS_REWARDS_ACCOUNT_SPEND_PUB_KEY             "0000000000000000000000000000000000000000000000000000000000000000" //burn alias money
