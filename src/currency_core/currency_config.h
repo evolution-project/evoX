@@ -53,7 +53,7 @@
 #define TX_DEFAULT_FEE                                  ((uint64_t)10000000000) // .01
 #define TX_MINIMUM_FEE                                  ((uint64_t)10000000000) // .01
 
-#define CURRENCY_BLOCK_REWARD                           100000000000000 // 1.0 coin == pow 12 (10, CURRENCY_DISPLAY_DECIMAL_POINT)
+#define CURRENCY_BLOCK_REWARD                           1000000000 // 1.0 coin == pow 12 (10, CURRENCY_DISPLAY_DECIMAL_POINT)
 
 
 #define WALLET_MAX_ALLOWED_OUTPUT_AMOUNT                ((uint64_t)0xffffffffffffffffLL)
