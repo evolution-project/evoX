@@ -46,14 +46,14 @@
 #define CURRENCY_DISPLAY_DECIMAL_POINT                  12
 
 // COIN - number of smallest units in one coin
-#define COIN                                            ((uint64_t)1000000000000) // pow(10, CURRENCY_DISPLAY_DECIMAL_POINT)
+#define COIN                                            ((uint64_t)1000000000000) // pow 12 (10, CURRENCY_DISPLAY_DECIMAL_POINT)
 #define BASE_REWARD_DUST_THRESHOLD                      ((uint64_t)1000000) // pow(10, 6) - change this will cause hard-fork!
 #define DEFAULT_DUST_THRESHOLD                          ((uint64_t)0)
 
 #define TX_DEFAULT_FEE                                  ((uint64_t)10000000000) // .01
 #define TX_MINIMUM_FEE                                  ((uint64_t)10000000000) // .01
 
-#define CURRENCY_BLOCK_REWARD                           1000000000000 // 1.0 coin == pow(10, CURRENCY_DISPLAY_DECIMAL_POINT)
+#define CURRENCY_BLOCK_REWARD                           1000000000000 // 1.0 coin == pow 12 (10, CURRENCY_DISPLAY_DECIMAL_POINT)
 
 
 #define WALLET_MAX_ALLOWED_OUTPUT_AMOUNT                ((uint64_t)0xffffffffffffffffLL)
@@ -180,7 +180,7 @@
 #endif
 
 //premine
-#define PREMINE_AMOUNT                                  (17517203000000000000U) // (17517203000000000000U) - 13827203.0 reserved for coinswap, 3690000.0 - premine  
+#define PREMINE_AMOUNT                                  (1000000000000U) // (17517203000000000000U) - 13827203.0 reserved for coinswap, 3690000.0 - premine  
 
 //alias registration wallet
 #define ALIAS_REWARDS_ACCOUNT_SPEND_PUB_KEY             "0000000000000000000000000000000000000000000000000000000000000000" //burn alias money
@@ -192,7 +192,7 @@
 
 
 #define ALIAS_NAME_MAX_LEN                              255
-#define ALIAS_VALID_CHARS                               "0123456789abcdefghijklmnopqrstuvwxyz-."
+#define ALIAS_VALID_CHARS                               "0123456789abcdefghijklmnopqrstuvwxyzA-."
 #define ALIAS_COMMENT_MAX_SIZE_BYTES                    400
 
 #define CURRENCY_CORE_INSTANCE_LOCK_FILE                "lock.lck"
@@ -239,13 +239,13 @@
 #define BLOCK_MINOR_VERSION_GENESIS                     0
 #define BLOCK_MAJOR_VERSION_INITIAL                     0
 #ifndef TESTNET
-#define EVOX_HARDFORK_01_AFTER_HEIGHT                   1440    //was 194624
-#define EVOX_HARDFORK_02_AFTER_HEIGHT                   1600    //was 999999
-#define EVOX_HARDFORK_03_AFTER_HEIGHT                   1800    //was 1082577
+#define EVOX_HARDFORK_01_AFTER_HEIGHT                   140    //was 194624
+#define EVOX_HARDFORK_02_AFTER_HEIGHT                   200    //was 999999
+#define EVOX_HARDFORK_03_AFTER_HEIGHT                   250    //was 1082577
 #else
-#define EVOX_HARDFORK_01_AFTER_HEIGHT                   1440
-#define EVOX_HARDFORK_02_AFTER_HEIGHT                   1600
-#define EVOX_HARDFORK_03_AFTER_HEIGHT                   1800
+#define EVOX_HARDFORK_01_AFTER_HEIGHT                   140
+#define EVOX_HARDFORK_02_AFTER_HEIGHT                   200
+#define EVOX_HARDFORK_03_AFTER_HEIGHT                   250
 #endif
 
 
