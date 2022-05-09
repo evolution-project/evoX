@@ -53,7 +53,7 @@
 #define TX_DEFAULT_FEE                                  ((uint64_t)10000000000) // .01
 #define TX_MINIMUM_FEE                                  ((uint64_t)10000000000) // .01
 
-#define CURRENCY_BLOCK_REWARD                           1000000000000 // 1.0 coin == pow 12 (10, CURRENCY_DISPLAY_DECIMAL_POINT)
+#define CURRENCY_BLOCK_REWARD                           1000000000000000000 // 1.0 coin == pow 12 (10, CURRENCY_DISPLAY_DECIMAL_POINT)
 
 
 #define WALLET_MAX_ALLOWED_OUTPUT_AMOUNT                ((uint64_t)0xffffffffffffffffLL)
@@ -180,7 +180,7 @@
 #endif
 
 //premine
-#define PREMINE_AMOUNT                                  (1000000000000U) // (17517203000000000000U) - 13827203.0 reserved for coinswap, 3690000.0 - premine  
+#define PREMINE_AMOUNT                                  (1) // (17517203000000000000U) - 13827203.0 reserved for coinswap, 3690000.0 - premine  
 
 //alias registration wallet
 #define ALIAS_REWARDS_ACCOUNT_SPEND_PUB_KEY             "0000000000000000000000000000000000000000000000000000000000000000" //burn alias money
