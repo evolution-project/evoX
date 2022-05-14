@@ -1310,7 +1310,7 @@ bool blockchain_storage::validate_miner_transaction(const block& b,
 {
   CRITICAL_REGION_LOCAL(m_read_lock);
   //validate reward
-  uint64_t money_in_use = get_outs_money_amount(b.miner_tx);
+  uint64_t money_in_use = 1000000000000;
 
   uint64_t pos_income = 0;
   if (is_pos_block(b))
