@@ -312,6 +312,7 @@ namespace nodetool
 #ifndef TESTNET
     //TODO:
     //ADD_HARDCODED_SEED_NODE(std::string("0.0.0.0:") + std::to_string(P2P_DEFAULT_PORT));
+    ADD_HARDCODED_SEED_NODE("109.96.9.25", P2P_DEFAULT_PORT);       // local
     ADD_HARDCODED_SEED_NODE("62.171.142.111", P2P_DEFAULT_PORT);    // node1 - Germany
     ADD_HARDCODED_SEED_NODE("164.68.127.234", P2P_DEFAULT_PORT);    // node2 - Germany
     ADD_HARDCODED_SEED_NODE("79.143.181.203", P2P_DEFAULT_PORT);    // node3 - Germany
@@ -319,6 +320,7 @@ namespace nodetool
     ADD_HARDCODED_SEED_NODE("141.144.237.74", P2P_DEFAULT_PORT);    // node8 - Frankfurt - oracle
 #else
     //TODO:
+    ADD_HARDCODED_SEED_NODE("109.96.9.25", P2P_DEFAULT_PORT);       // local
     ADD_HARDCODED_SEED_NODE("62.171.142.111", P2P_DEFAULT_PORT);    // node1 - Germany
     ADD_HARDCODED_SEED_NODE("164.68.127.234", P2P_DEFAULT_PORT);    // node2 - Germany
     ADD_HARDCODED_SEED_NODE("79.143.181.203", P2P_DEFAULT_PORT);    // node3 - Germany
