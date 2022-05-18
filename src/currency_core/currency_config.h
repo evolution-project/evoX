@@ -239,13 +239,13 @@
 #define BLOCK_MINOR_VERSION_GENESIS                     0
 #define BLOCK_MAJOR_VERSION_INITIAL                     0
 #ifndef TESTNET
-#define EVOX_HARDFORK_01_AFTER_HEIGHT                   140    //was 194624
-#define EVOX_HARDFORK_02_AFTER_HEIGHT                   200    //was 999999
-#define EVOX_HARDFORK_03_AFTER_HEIGHT                   250    //was 1082577
+#define EVOX_HARDFORK_01_AFTER_HEIGHT                   50    //was 194624
+#define EVOX_HARDFORK_02_AFTER_HEIGHT                   100    //was 999999
+#define EVOX_HARDFORK_03_AFTER_HEIGHT                   150    //was 1082577
 #else
-#define EVOX_HARDFORK_01_AFTER_HEIGHT                   140
-#define EVOX_HARDFORK_02_AFTER_HEIGHT                   200
-#define EVOX_HARDFORK_03_AFTER_HEIGHT                   250
+#define EVOX_HARDFORK_01_AFTER_HEIGHT                   50
+#define EVOX_HARDFORK_02_AFTER_HEIGHT                   100
+#define EVOX_HARDFORK_03_AFTER_HEIGHT                   150
 #endif
 
 
