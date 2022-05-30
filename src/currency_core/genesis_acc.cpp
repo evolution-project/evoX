@@ -10,36 +10,11 @@
 namespace currency
 {
 #ifndef TESTNET
-  const std::string ggenesis_tx_pub_key_str = "bf6440a6a794a8bfa1e5a4c73fa0eeb16e461dd85280d6c7a73bbd22f0f69d58";
-  const crypto::public_key ggenesis_tx_pub_key = epee::string_tools::parse_tpod_from_hex_string<crypto::public_key>(ggenesis_tx_pub_key_str);
-  const genesis_tx_dictionary_entry ggenesis_dict[26] = {
-    { 898363347618325980ULL,7 },
-    { 1234271292339965434ULL,1 },
-    { 2785329203593578547ULL,12 },
-    { 2912579291078040461ULL,18 },
-    { 3515932779881697835ULL,17 },
-    { 4955366495399988463ULL,11 },
-    { 5233257582118330150ULL,5 },
-    { 5931539148443336682ULL,24 },
-    { 6436517662239927298ULL,19 },
-    { 6604452700210763953ULL,13 },
-    { 7200550178847042641ULL,15 },
-    { 8712326356392296687ULL,9 },
-    { 8863158309745010598ULL,4 },
-    { 9048445805125559105ULL,16 },
-    { 9527474759752332295ULL,2 },
-    { 9647541513390373765ULL,20 },
-    { 9921730437908704447ULL,8 },
-    { 10751885755236960099ULL,25 },
-    { 11032572278436047420ULL,22 },
-    { 11109691972771859220ULL,0 },
-    { 13554174209305230569ULL,23 },
-    { 14297297752337562678ULL,3 },
-    { 15636081871140663679ULL,21 },
-    { 15951161519112687845ULL,6 },
-    { 17146058209502212345ULL,14 },
-    { 17472133472787764818ULL,10 }
-  };
+const std::string ggenesis_tx_pub_key_str = "db91a8107b049ec9d37a6130b4f344570e2def3a8482106dfbd462e2bd8affcf";
+const genesis_tx_dictionary_entry ggenesis_dict[2] = {
+    {3792787674364154481ULL,1},
+    {4009227131413678588ULL,0}
+};
 #else 
   const std::string ggenesis_tx_pub_key_str    = "bf6440a6a794a8bfa1e5a4c73fa0eeb16e461dd85280d6c7a73bbd22f0f69d58";
   const crypto::public_key ggenesis_tx_pub_key = epee::string_tools::parse_tpod_from_hex_string<crypto::public_key>(ggenesis_tx_pub_key_str);
