@@ -11,6 +11,7 @@ namespace currency
 {
 #ifndef TESTNET
 const std::string ggenesis_tx_pub_key_str = "db91a8107b049ec9d37a6130b4f344570e2def3a8482106dfbd462e2bd8affcf";
+const crypto::public_key ggenesis_tx_pub_key = epee::string_tools::parse_tpod_from_hex_string<crypto::public_key>(ggenesis_tx_pub_key_str);
 const genesis_tx_dictionary_entry ggenesis_dict[2] = {
     {3792787674364154481ULL,1},
     {4009227131413678588ULL,0}
