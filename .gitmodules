@@ -3,5 +3,5 @@
 	url = https://github.com/miniupnp/miniupnp
 [submodule "src/gui/qt-daemon/layout"]
 	path = src/gui/qt-daemon/layout
-	url = https://github.com/cosmos2202/EvoX_ui.git
+	url = https://github.com/evolution-project/evox_ui.git
 	branch = main
