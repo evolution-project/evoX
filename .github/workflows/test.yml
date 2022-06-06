@@ -24,6 +24,8 @@ jobs:
         run: sudo apt update
       - name: install dependencies
         run: sudo apt-get install -y build-essential g++ python-dev autotools-dev libboost-all-dev libssl-dev libicu-dev libbz2-dev cmake git screen checkinstall zlib1g-dev
+      - name: install dependencies GUI
+        run: ./dependencies.sh
       - name: build server
         run: |
           mkdir build && cd build
