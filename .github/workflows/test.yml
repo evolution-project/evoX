@@ -30,8 +30,6 @@ jobs:
       - name: build server
         run: |
               utils/build_script_linux.sh
-              cmake $testnet_def -D STATIC=true -D ARCH=x86-64 -D BUILD_GUI=TRUE -D CMAKE_PREFIX_PATH="$QT_PREFIX_PATH" -D CMAKE_BUILD_TYPE=Release ../..
-              make -j2 daemon simplewallet connectivity_tool Evox
       - name: Tar files
         run: cd build/src && tar -cvf ../../server-linux-amd64.tar evoxd simplewallet
       - uses: actions/upload-artifact@v3
