@@ -25,12 +25,13 @@ jobs:
       - name: install dependencies
         run: sudo apt-get install -y build-essential g++ python-dev autotools-dev libboost-all-dev libssl-dev libicu-dev libbz2-dev cmake git screen checkinstall zlib1g-dev
       - name: install dependencies GUI
-        run: ./dependencies.sh
+        run: |
+              chmod +x dependencies.sh && ./dependencies.sh
       - name: build server
         run: |
-          mkdir build && cd build
-          cmake -D STATIC=true -D ARCH=x86-64 -D TESTNET=TRUE -D CMAKE_BUILD_TYPE=Release ..
-          make -j2 daemon simplewallet
+              utils/build_script_linux.sh
+              cmake $testnet_def -D STATIC=true -D ARCH=x86-64 -D BUILD_GUI=TRUE -D CMAKE_PREFIX_PATH="$QT_PREFIX_PATH" -D CMAKE_BUILD_TYPE=Release ../..
+              make -j2 daemon simplewallet connectivity_tool Evox
       - name: Tar files
         run: cd build/src && tar -cvf ../../server-linux-amd64.tar evoxd simplewallet
       - uses: actions/upload-artifact@v3
