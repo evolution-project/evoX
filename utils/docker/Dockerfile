@@ -63,7 +63,7 @@ RUN pwd && mem_avail_gb=$(( $(getconf _AVPHYS_PAGES) * $(getconf PAGE_SIZE) / (1
     make_job_slots=$(( $mem_avail_gb < 4 ? 1 : $mem_avail_gb / 4)) &&\
     echo make_job_slots=$make_job_slots &&\
     set -x &&\
-    git clone --single-branch https://github.com/evolution-project/zano.git &&\
+    git clone --single-branch https://github.com/evolution-project/evox.git &&\
     cd evox &&\
     git submodule update --init --recursive &&\
     mkdir build && cd build &&\

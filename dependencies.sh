@@ -18,17 +18,9 @@ make
 make test
 make install
 
-cd ..
-
-
-wget https://download.qt.io/new_archive/qt/5.11/5.11.2/qt-opensource-linux-x64-5.11.2.run
-chmod +x qt-opensource-linux-x64-5.11.2.run
-./qt-opensource-linux-x64-5.11.2.run
-
 
 cd ..
 
 
-export BOOST_ROOT=/home/zano/boost_1_70_0  
-export OPENSSL_ROOT_DIR=/home/zano/openssl
-export QT_PREFIX_PATH=/home/zano/Qt5.11.2/5.11.2/gcc_64
+export BOOST_ROOT=/home/evox/boost_1_70_0  
+export OPENSSL_ROOT_DIR=/home/evox/openssl

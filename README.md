@@ -23,7 +23,7 @@
 
 Note:\
 [*server version*] denotes steps required for building command-line tools (daemon, simplewallet, etc.).\
-[*GUI version*] denotes steps required for building Zano executable with GUI.
+[*GUI version*] denotes steps required for building Evox executable with GUI.
 
 <br />
 
@@ -79,18 +79,17 @@ Recommended OS version: Ubuntu 18.04 LTS.
 
     Be sure to clone the repository properly:\
 
-    `git clone --recursive https://github.com/evolution-project/zano.git`
+    `git clone --recursive https://github.com/evolution-project/evox.git`
 
 6. Building binaries
 
    1. Building daemon and simplewallet:
 
-          cd zano/ && make -j1
-      or 
-   
-          cd zano && mkdir build && cd build
+
+          cd evox && mkdir build && cd build
           cmake ..
           make -j1 daemon simplewallet
+
 
       **NOTICE**: If you are building on a machine with a relatively high amount of RAM or with the proper setting of virtual memory, then you can use `-j2` or `-j` option to speed up the building process. Use with caution.
       
@@ -98,8 +97,8 @@ Recommended OS version: Ubuntu 18.04 LTS.
    
    1. Building GUI:
 
-          cd zano
-          utils/build_sript_linux.sh
+          cd evox
+          utils/build_script_linux.sh
 
 7. Look for the binaries in `build` folder
 

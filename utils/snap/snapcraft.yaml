@@ -101,7 +101,7 @@ parts:
       
   evox-bin:
     after: [ libboost, qt ]
-    source: https://github.com/evolution-project/zano.git
+    source: https://github.com/evolution-project/evox.git
     plugin: cmake
 
     override-build: |
