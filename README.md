@@ -22,14 +22,14 @@
 | [Qt](https://download.qt.io/archive/qt/) (*only for GUI*) | 5.11.2 | 5.15.2 |
 
 Note:\
-[*server version*] denotes steps required for building command-line tools (daemon, simplewallet, etc.).\
+[*server version*] denotes steps required for building command-line tools (daemon, simplewallet).\
 [*GUI version*] denotes steps required for building Evox executable with GUI.
 
 <br />
 
 ### Linux
 
-Recommended OS version: Ubuntu 18.04 LTS.
+Recommended OS version: Ubuntu 20.04 LTS.
 
 1. Prerequisites
 
@@ -39,7 +39,7 @@ Recommended OS version: Ubuntu 18.04 LTS.
           
    [*GUI version*]
 
-       sudo apt-get install -y build-essential g++ python-dev autotools-dev libicu-dev libbz2-dev cmake git screen mesa-common-dev libglu1-mesa-dev
+       sudo apt-get install -y build-essential g++ python3 autotools-dev libicu-dev libbz2-dev cmake git screen mesa-common-dev libglu1-mesa-dev
 
 2. Download and build Boost
 
@@ -59,7 +59,7 @@ Recommended OS version: Ubuntu 18.04 LTS.
        chmod +x qt-opensource-linux-x64-5.11.2.run
        ./qt-opensource-linux-x64-5.11.2.run
 
-    Then follow the instructions in Wizard. Don't forget to tick the WebEngine module checkbox!
+    Then follow the instructions in Wizard. Don't forget to tick the 2 checkbox!
 
 4. Set environment variables properly\
 
