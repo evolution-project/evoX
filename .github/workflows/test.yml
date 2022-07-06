@@ -23,7 +23,7 @@ jobs:
         run: |
           mkdir build && cd build
           cmake -D STATIC=true -D ARCH=x86-64 -D CMAKE_BUILD_TYPE=Release ..
-          make -j2 daemon simplewallet
+          make -j1 daemon simplewallet
       - name: Tar files
         run: cd build/src && tar -cvf ../../server-linux-amd64.tar evoxd simplewallet
       - uses: actions/upload-artifact@v3
