@@ -1,4 +1,4 @@
-[![Coverity Scan](https://scan.coverity.com/projects/18767/badge.svg)](https://scan.coverity.com/projects/zanoproject)
+<!--[![Coverity Scan](https://scan.coverity.com/projects/18767/badge.svg)](https://scan.coverity.com/projects/zanoproject)-->
 
 ## Join us
 
@@ -117,10 +117,10 @@ Recommended OS version: Windows 7 x64.
 
 In order to correctly deploy Qt GUI application, you also need to do the following:
 
-6. Copy Zano.exe to a folder (e.g. `depoy`). 
-7. Run  `PATH_TO_QT\bin\windeployqt.exe deploy\Zano.exe`.
+6. Copy Evox.exe to a folder (e.g. `depoy`). 
+7. Run  `PATH_TO_QT\bin\windeployqt.exe deploy\Evox.exe`.
 8. Copy folder `\src\gui\qt-daemon\html` to `deploy\html`.
-9. Now you can run `Zano.exe`
+9. Now you can run `Evox.exe`
 
 <br />
 
@@ -136,13 +136,13 @@ To build GUI application:
 
 1. Create self-signing certificate via Keychain Access:\
     a. Run Keychain Access.\
-    b. Choose Keychain Access > Certificate Assistant > Create a Certificate.\
+<!--    b. Choose Keychain Access > Certificate Assistant > Create a Certificate.\
     c. Use “Zano” (without quotes) as certificate name.\
     d. Choose “Code Signing” in “Certificate Type” field.\
     e. Press “Create”, then “Done”.\
     f. Make sure the certificate was added to keychain "System". If not—move it to "System".\
     g. Double click the certificate you've just added, enter the trust section and under "When using this certificate" select "Always trust".\
-    h. Unfold the certificate in Keychain Access window and double click the underlying private key "Zano". Select "Access Control" tab, then select "Allow all applications to access this item". Click "Save Changes".
+    h. Unfold the certificate in Keychain Access window and double click the underlying private key "Zano". Select "Access Control" tab, then select "Allow all applications to access this item". Click "Save Changes".-->
 2. Revise building script, comment out unwanted steps and run it:  `utils/build_script_mac_osx.sh`
 3. The application should be here: `/buid_mac_osx_64/release/src`
 
