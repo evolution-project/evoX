@@ -13,7 +13,7 @@ namespace currency
   struct genesis_tx_raw_data
   {
     uint64_t const v[22];
-    uint8_t const r[6];
+    uint8_t const r[5];
   };
 
 #else
@@ -26,7 +26,6 @@ namespace currency
 #pragma pack(pop)
   extern const genesis_tx_raw_data ggenesis_tx_raw;
 }
-
 
 
 

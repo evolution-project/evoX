@@ -180,7 +180,7 @@
 #endif
 
 //premine
-#define PREMINE_AMOUNT                                  (14000000000000000000U)  // premine to set here after know exact amount
+#define PREMINE_AMOUNT                                  (1582987000000000000U)  // 1.482.987 old coins + 100.000 dev fund
 
 //alias registration wallet
 #define ALIAS_REWARDS_ACCOUNT_SPEND_PUB_KEY             "0000000000000000000000000000000000000000000000000000000000000000" //burn alias money
