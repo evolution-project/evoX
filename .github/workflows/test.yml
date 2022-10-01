@@ -1,35 +1,24 @@
+
 name: Server - Linux
 
-on:
-  push:
-    paths-ignore:
-      - '**.md'
-  pull_request:
-    paths-ignore:
-      - '**.md'
+#on: [push, pull_request]
 
 jobs:
   ubuntu:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
     steps:
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.9.1
+      - uses: actions/checkout@v1
         with:
-          access_token: ${{ github.token }}
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
           submodules: recursive
       - name: update apt
-        run: sudo apt update
+        run: sudo apt update & sudo apt-get upgrade -y
       - name: install dependencies
         run: sudo apt-get install -y build-essential g++ python-dev autotools-dev libboost-all-dev libssl-dev libicu-dev libbz2-dev cmake git screen checkinstall zlib1g-dev
-      - name: install dependencies GUI
-        run: |
-              chmod +x dependencies.sh && ./dependencies.sh
       - name: build server
         run: |
-              utils/build_script_linux.sh
+          mkdir build && cd build
+          cmake -D STATIC=true -D ARCH=x86-64 -D CMAKE_BUILD_TYPE=Release ..
+          make -j1 daemon simplewallet
       - name: Tar files
         run: cd build/src && tar -cvf ../../server-linux-amd64.tar evoxd simplewallet
       - uses: actions/upload-artifact@v3

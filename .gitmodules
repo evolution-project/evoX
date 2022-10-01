@@ -4,4 +4,3 @@
 [submodule "src/gui/qt-daemon/layout"]
 	path = src/gui/qt-daemon/layout
 	url = https://github.com/evolution-project/evox_ui.git
-	branch = main
