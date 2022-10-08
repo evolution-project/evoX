@@ -320,7 +320,6 @@ namespace nodetool
     ADD_HARDCODED_SEED_NODE("138.2.160.222", P2P_DEFAULT_PORT);     // oracle-ARM-1 - Frankfurt
     ADD_HARDCODED_SEED_NODE("132.145.242.74", P2P_DEFAULT_PORT);    // oracle-ARM-2 - Frankfurt
     ADD_HARDCODED_SEED_NODE("49.234.122.53", P2P_DEFAULT_PORT);     // Jason - China
-//    ADD_HARDCODED_SEED_NODE("198.50.187.239", P2P_DEFAULT_PORT);     // Eadrom - .......
     ADD_HARDCODED_SEED_NODE("45.132.244.63", P2P_DEFAULT_PORT);     // SG-Doge - ......
 #else
     //TODO:
@@ -332,7 +331,6 @@ namespace nodetool
     ADD_HARDCODED_SEED_NODE("138.2.160.222", P2P_DEFAULT_PORT);     // oracle-ARM-1 - Frankfurt
     ADD_HARDCODED_SEED_NODE("132.145.242.74", P2P_DEFAULT_PORT);    // oracle-ARM-2 - Frankfurt
     ADD_HARDCODED_SEED_NODE("49.234.122.53", P2P_DEFAULT_PORT);     // Jason - China
-//    ADD_HARDCODED_SEED_NODE("198.50.187.239", P2P_DEFAULT_PORT);     // Eadrom - .......
     ADD_HARDCODED_SEED_NODE("45.132.244.63", P2P_DEFAULT_PORT);     // SG-Doge - ......
 #endif
 
