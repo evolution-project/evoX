@@ -35,7 +35,7 @@ Recommended OS version: Ubuntu 20.04 LTS.
 
    [*server version*]
    
-       sudo apt-get install -y build-essential g++ python-dev autotools-dev libicu-dev libbz2-dev cmake git screen
+       sudo apt-get install -y build-essential g++ python3-dev autotools-dev libicu-dev libbz2-dev cmake git screen
           
    [*GUI version*]
 
@@ -79,7 +79,7 @@ Recommended OS version: Ubuntu 20.04 LTS.
 
     Be sure to clone the repository properly:\
 
-    `git clone --recursive https://github.com/evolution-project/evox.git`
+        git clone --recursive https://github.com/evolution-project/evox.git
 
 6. Building binaries
 
@@ -124,7 +124,7 @@ In order to correctly deploy Qt GUI application, you also need to do the followi
 
 <br />
 
-## I dont support
+<!--## I dont support
 
 ### macOS
 Recommended OS version: macOS Sierra 10.15.4 x64.
@@ -136,13 +136,13 @@ To build GUI application:
 
 1. Create self-signing certificate via Keychain Access:\
     a. Run Keychain Access.\
-<!--    b. Choose Keychain Access > Certificate Assistant > Create a Certificate.\
+    b. Choose Keychain Access > Certificate Assistant > Create a Certificate.\
     c. Use “Zano” (without quotes) as certificate name.\
     d. Choose “Code Signing” in “Certificate Type” field.\
     e. Press “Create”, then “Done”.\
     f. Make sure the certificate was added to keychain "System". If not—move it to "System".\
     g. Double click the certificate you've just added, enter the trust section and under "When using this certificate" select "Always trust".\
-    h. Unfold the certificate in Keychain Access window and double click the underlying private key "Zano". Select "Access Control" tab, then select "Allow all applications to access this item". Click "Save Changes".-->
+    h. Unfold the certificate in Keychain Access window and double click the underlying private key "Zano". Select "Access Control" tab, then select "Allow all applications to access this item". Click "Save Changes".
 2. Revise building script, comment out unwanted steps and run it:  `utils/build_script_mac_osx.sh`
-3. The application should be here: `/buid_mac_osx_64/release/src`
+3. The application should be here: `/buid_mac_osx_64/release/src`-->
 
