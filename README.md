@@ -79,7 +79,7 @@ Recommended OS version: Ubuntu 20.04 LTS.
 
     Be sure to clone the repository properly:\
 
-        git clone --recursive https://github.com/evolution-project/evox.git
+        git clone --recursive https://github.com/evolution-project/evolution.git
 
 6. Building binaries
 
