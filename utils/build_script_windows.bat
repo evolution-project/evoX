@@ -1,10 +1,10 @@
-SET QT_PREFIX_PATH=C:\dev\_sdk\Qt5.11.2\5.11.2\msvc2017_64
-SET INNOSETUP_PATH=C:\Program Files (x86)\Inno Setup 5\ISCC.exe
-SET ETC_BINARIES_PATH=C:\dev\deploy\etc-binaries
-SET BUILDS_PATH=C:\dev\deploy\evox
-SET ACHIVE_NAME_PREFIX=evox-win-x64-
-SET LOCAL_BOOST_PATH=C:\dev\_sdk\boost_1_68_0
-SET LOCAL_BOOST_LIB_PATH=C:\dev\_sdk\boost_1_68_0\lib64-msvc-14.1
+SET QT_PREFIX_PATH=D:\Qt\Qt5.11.2\5.11.2\msvc2017_64
+SET INNOSETUP_PATH=C:\Program Files (x86)\Inno Setup 6\ISCC.exe
+SET ETC_BINARIES_PATH=C:\Users\cosmos\Documents\GitHub\EvoX\build\etc-binaries
+SET BUILDS_PATH=C:\Users\cosmos\Documents\GitHub\EvoX\build\evox
+SET ACHIVE_NAME_PREFIX=evox-win-x64
+SET LOCAL_BOOST_PATH=C:\local\boost_1_70_0\lib64-msvc-14.1
+SET LOCAL_BOOST_LIB_PATH=C:\local\boost_1_70_0\lib64-msvc-14.1
 SET MY_PATH=%~dp0
 SET SOURCES_PATH=%MY_PATH:~0,-7%
 
@@ -49,7 +49,7 @@ IF %ERRORLEVEL% NEQ 0 (
   goto error
 )
 
-call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvars64.bat" x86_amd64
+call "D:\Program Files\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat" x86_amd64
 echo on
 cd %SOURCES_PATH%\build
 

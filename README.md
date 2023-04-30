@@ -23,7 +23,7 @@
 
 Note:\
 [*server version*] denotes steps required for building command-line tools (daemon, simplewallet).\
-[*GUI version*] denotes steps required for building Evox executable with GUI.
+[*GUI version*] denotes steps required for building EvoX executable with GUI.
 
 <br />
 
@@ -117,10 +117,10 @@ Recommended OS version: Windows 7 x64.
 
 In order to correctly deploy Qt GUI application, you also need to do the following:
 
-6. Copy Evox.exe to a folder (e.g. `depoy`). 
-7. Run  `PATH_TO_QT\bin\windeployqt.exe deploy\Evox.exe`.
+6. Copy EvoX.exe to a folder (e.g. `depoy`). 
+7. Run  `PATH_TO_QT\bin\windeployqt.exe deploy\EvoX.exe`.
 8. Copy folder `\src\gui\qt-daemon\html` to `deploy\html`.
-9. Now you can run `Evox.exe`
+9. Now you can run `EvoX.exe`
 
 <br />
 

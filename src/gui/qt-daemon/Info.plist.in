@@ -10,7 +10,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>Evox</string>
+	<string>EvoX</string>
 	<key>CFBundleIconFile</key>
 	<string>app.icns</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -24,7 +24,7 @@
 	<key>CFBundleVersion</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>Evox</string>
+	<string>EvoX</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
 	<key>DTCompiler</key>
