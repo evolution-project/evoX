@@ -1,9 +1,9 @@
 name: evox
 base: core18
 adopt-info: evox
-summary: "EvoX coin: official wallet. Secure. Scalable. Easy to Use."
+summary: "Evox coin: official wallet. Secure. Scalable. Easy to Use."
 description: |
-  EvoX is a scalable and secure coin, designed for use in e-commerce.
+  Evox is a scalable and secure coin, designed for use in e-commerce.
   The technology behind our blockchain provides reliability, security,
   and flexibility a perfect option for P2P transactions.
   More info: http://zano.org
@@ -25,11 +25,11 @@ parts:
       - -DBUILD_GUI=TRUE
     override-build: |
       snapcraftctl build
-      mkdir -p $SNAPCRAFT_PART_INSTALL/opt/EvoX
-      cp $SNAPCRAFT_PART_BUILD/src/EvoX $SNAPCRAFT_PART_INSTALL/opt/EvoX/
-      cp $SNAPCRAFT_PART_BUILD/src/simplewallet $SNAPCRAFT_PART_INSTALL/opt/EvoX/
-      cp $SNAPCRAFT_PART_BUILD/src/evoxd $SNAPCRAFT_PART_INSTALL/opt/EvoX/
-      rsync -a $SNAPCRAFT_PART_SRC/src/gui/qt-daemon/html $SNAPCRAFT_PART_INSTALL/opt/EvoX --exclude less --exclude package.json --exclude gulpfile.js
+      mkdir -p $SNAPCRAFT_PART_INSTALL/opt/Evox
+      cp $SNAPCRAFT_PART_BUILD/src/Evox $SNAPCRAFT_PART_INSTALL/opt/Evox/
+      cp $SNAPCRAFT_PART_BUILD/src/simplewallet $SNAPCRAFT_PART_INSTALL/opt/Evox/
+      cp $SNAPCRAFT_PART_BUILD/src/evoxd $SNAPCRAFT_PART_INSTALL/opt/Evox/
+      rsync -a $SNAPCRAFT_PART_SRC/src/gui/qt-daemon/html $SNAPCRAFT_PART_INSTALL/opt/Evox --exclude less --exclude package.json --exclude gulpfile.js
     build-packages:
       - make
       - g++
@@ -50,7 +50,7 @@ parts:
 
 apps:
   evox:
-    command: opt/EvoX/EvoX --data-dir $SNAP_USER_COMMON
+    command: opt/Evox/Evox --data-dir $SNAP_USER_COMMON
     extensions:
       - kde-neon
     plugs:
@@ -62,12 +62,12 @@ apps:
       - audio-playback
       - unity7 #for tray icon support
   simplewallet:
-    command: opt/EvoX/simplewallet
+    command: opt/Evox/simplewallet
     plugs:
       - network
       - home
   evoxd:
-    command: opt/EvoX/evoxd --data-dir $SNAP_USER_COMMON
+    command: opt/Evox/evoxd --data-dir $SNAP_USER_COMMON
     environment:
       LC_ALL: C
     plugs:

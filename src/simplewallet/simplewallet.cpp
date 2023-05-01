@@ -1231,7 +1231,7 @@ bool simple_wallet::validate_wrap_status(uint64_t amount)
   if (amount <= evox_needed_for_wrap)
   {
     fail_msg_writer() << "Too small amount to cover ERC20 fee. ERC20 cost is: " 
-      << print_money(evox_needed_for_wrap) << " EvoX" <<
+      << print_money(evox_needed_for_wrap) << " Evox" <<
       "($" << res.tx_cost.usd_needed_for_erc20 << ")";
     return false;
   }
@@ -1243,7 +1243,7 @@ bool simple_wallet::validate_wrap_status(uint64_t amount)
     return false;
   }
   
-  success_msg_writer(false) << "You'll receive estimate " << print_money(amount - evox_needed_for_wrap) << " wZano (" << print_money(evox_needed_for_wrap)<< " EvoX will be used to cover ERC20 fee)";
+  success_msg_writer(false) << "You'll receive estimate " << print_money(amount - evox_needed_for_wrap) << " wZano (" << print_money(evox_needed_for_wrap)<< " Evox will be used to cover ERC20 fee)";
   success_msg_writer(false) << "Proceed? (yes/no)";
   while (true)
   {
@@ -1320,7 +1320,7 @@ bool simple_wallet::transfer(const std::vector<std::string> &args_)
     {
 
       success_msg_writer(false) << "Address " << local_args[i] << " recognized as wrapped address, creating wrapping transaction.";
-      success_msg_writer(false) << "This transaction will create wZano (\"Wrapped EvoX\") which will be sent to the specified address on the Ethereum network.";
+      success_msg_writer(false) << "This transaction will create wZano (\"Wrapped Evox\") which will be sent to the specified address on the Ethereum network.";
 
       if (!validate_wrap_status(de.amount))
       {

@@ -1,7 +1,7 @@
 SET QT_PREFIX_PATH=D:\Qt\Qt5.11.2\5.11.2\msvc2017_64
 SET INNOSETUP_PATH=C:\Program Files (x86)\Inno Setup 6\ISCC.exe
-SET ETC_BINARIES_PATH=C:\Users\cosmos\Documents\GitHub\EvoX\build\etc-binaries
-SET BUILDS_PATH=C:\Users\cosmos\Documents\GitHub\EvoX\build\evox
+SET ETC_BINARIES_PATH=C:\Users\cosmos\Documents\GitHub\Evox\build\etc-binaries
+SET BUILDS_PATH=C:\Users\cosmos\Documents\GitHub\Evox\build\evox
 SET ACHIVE_NAME_PREFIX=evox-win-x64
 SET LOCAL_BOOST_PATH=C:\local\boost_1_70_0\lib64-msvc-14.1
 SET LOCAL_BOOST_LIB_PATH=C:\local\boost_1_70_0\lib64-msvc-14.1
