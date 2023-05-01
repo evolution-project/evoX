@@ -169,8 +169,8 @@
 
 
 #define CURRENCY_NAME_ABR                               "EVOX"
-#define CURRENCY_NAME_BASE                              "Evox"
-#define CURRENCY_NAME_SHORT_BASE                        "Evox"
+#define CURRENCY_NAME_BASE                              "EvoX Vault"
+#define CURRENCY_NAME_SHORT_BASE                        "EvoX"
 #ifndef TESTNET
 #define CURRENCY_NAME                                   CURRENCY_NAME_BASE
 #define CURRENCY_NAME_SHORT                             CURRENCY_NAME_SHORT_BASE
